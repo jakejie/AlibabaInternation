@@ -2,7 +2,7 @@
 import time
 import hashlib
 from scrapy import signals
-from settings import proxy_secret, proxy_address, proxy_order_no
+from AlibabaSpider.settings import proxy_secret, proxy_address, proxy_order_no
 
 
 # 代理中间件 添加代理ip

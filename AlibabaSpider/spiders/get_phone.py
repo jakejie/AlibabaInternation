@@ -9,16 +9,20 @@ CreateDay:2018/9/24 11:39
 """
 import scrapy
 
-try:
-    from AlibabaSpider.pipelines import AlibabaspiderPipeline
-except Exception as e:
-    try:
-        from pipelines import AlibabaspiderPipeline
-    except Exception as e:
-        print("get_phone.py文件中模块导入异常：{}".format(e))
+from AlibabaSpider.pipelines import AlibabaspiderPipeline
+# try:
+#     from AlibabaSpider.pipelines import AlibabaspiderPipeline
+# except Exception as e:
+#     try:
+#         from pipelines import AlibabaspiderPipeline
+#     except Exception as e:
+#         try:
+#             from .pipelines import AlibabaspiderPipeline
+#         except Exception as e:
+#             print("get_phone.py文件中模块导入异常：{}".format(e))
 
 
-class CrawlPhone(scrapy.Spider, AlibabaspiderPipeline):
+class CrawlPhone(scrapy.Spider):
     name = 'alibaba_phone'  # scrapy项目名称
     allowed_domains = ['alibaba.com']
     headers = {
@@ -26,10 +30,7 @@ class CrawlPhone(scrapy.Spider, AlibabaspiderPipeline):
     }
 
     def start_requests(self):
-        all_business = self.get_all_business()
-        for business in all_business:
-            pass
-
+        pass
 
 if __name__ == "__main__":
     pass
